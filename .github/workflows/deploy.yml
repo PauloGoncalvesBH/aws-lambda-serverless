@@ -1,0 +1,24 @@
+name: Deploy Production
+
+on:
+  push:
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Node.js Setup
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Install NPM dependencies
+      run: npm install --production
+    - name: Install Serverless Framework
+      run: npm install -g serverless
+    - name: Serverless AWS authentication
+      run: serverless config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Deploy Lambda functions
+      run: npm run deploy

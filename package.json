@@ -1,0 +1,12 @@
+{
+  "name": "aws-lambda-serverless",
+  "author": "Paulo Gonçalves (https://github.com/PauloGoncalvesBH)",
+  "scripts": {
+    "local:dev": "serverless offline start",
+    "deploy": "serverless deploy --verbose"
+  },
+  "dependencies": {
+    "axios": "0.21.1",
+    "serverless-offline": "8.0.0"
+  }
+}
