@@ -1,4 +1,4 @@
-service: lambda-less
+service: aws-lambda-serverless
 
 frameworkVersion: '2'
 
@@ -13,8 +13,6 @@ provider:
 functions:
   getUsuarios:
     handler: index.getUsuarios
-    environment:
-      bucket: lambda-less
     events:
       - httpApi:
           path: /
